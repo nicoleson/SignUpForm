@@ -15,6 +15,8 @@ namespace SignUpForm
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // This will inject an MVC system to the using project.
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,6 +29,15 @@ namespace SignUpForm
 
             // This will recognize and enable files inside of wwwroot (where static files are stored) when executing the app.
             app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                // Set up a routing middleware for mapping.
+                routes.MapRoute(
+                    name: "default",
+                    // The main page will display the view (Student.cshtml) which is returned by the Student action method in HomeController.
+                    template: "{controller=Home}/{action=Student}/{id?}");
+            });
         }
     }
 }
