@@ -25,10 +25,8 @@ namespace SignUpForm
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            // This will recognize and enable files inside of wwwroot (where static files are stored) when executing the app.
+            app.UseStaticFiles();
         }
     }
 }
