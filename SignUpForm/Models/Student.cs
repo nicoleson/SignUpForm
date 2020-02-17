@@ -12,7 +12,7 @@ namespace SignUpForm.Models
     {
         [Required, MaxLength(50)]
         public string Name { get; set; }
-        [Range(15,70)]
+        [Range(15,70)] 
         public int Age { get; set; }
         [Required, MinLength(5)]
         public string Country { get; set; }
